@@ -29,13 +29,12 @@ const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__
 function configureStore(initialState) {
   //more boilerplate. Enhancer composes different middleware
   const enhancer = compose(
-    autoRehydrate(),
     applyMiddleware(
       thunkMiddleware,
       loggerMiddleware,
     ),
   );
-  return createStore(reducers, initialState, enhancer);
+  return createStore(reducers,  enhancer);
 }
 
 const store = configureStore({});
