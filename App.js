@@ -12,6 +12,9 @@ import {
   Image,
   View
 } from 'react-native';
+import {
+  AppRegistry,
+} from 'react-native';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers, compose} from 'redux';
@@ -28,21 +31,25 @@ const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__
 
 function configureStore(initialState) {
   //more boilerplate. Enhancer composes different middleware
-  const enhancer = compose(
-    applyMiddleware(
-      thunkMiddleware,
-      loggerMiddleware,
-    ),
-  );
-  return createStore(reducers,  enhancer);
+  //const enhancer = compose(
+    //applyMiddleware(
+    //  thunkMiddleware,
+    //  loggerMiddleware,
+   // ),
+ // );
+  //return createStore(reducers,  enhancer);
 }
 
 const store = configureStore({});
 
-persistStore(store, {storage: AsyncStorage})
+//persistStore(store, {storage: AsyncStorage})
+export default class App extends Component<{}>{
+	render(){
+		return(
+		  <Provider store={store}>
+			<AppContainer/>
+		  </Provider>			
+		);
+	}
+}
 
-const App = () => (
-  <Provider store={store}>
-    <AppContainer/>
-  </Provider>
-)

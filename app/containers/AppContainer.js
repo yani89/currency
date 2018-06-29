@@ -62,50 +62,50 @@ const HomeScreen = ({ navigation }) => (
 	</ScrollView>
 )
 const InfoScreen = ({ navigaiton , screenProps }) => (
-	<ScrollView>
-		<HeroText>Step 1</HeroText>
-		<View style={styles.section}>
-			<Button
-			onPress={() => navigation.navigate('LoginSetting')}
-			title="Enter Travelers"
-			/>
-			<FilterBar
-			filters={screenProps.activeUsers}
-			setFilters={screenProps.setActiveUsers}
-			fields={screenProps.userFilteredTodos}
-			filterBarLabel={"Travelers"}
-			setFields={screenProps.setUserFilteredTodos}
-			setUserFilteredTodos={screenProps.setUserFilteredTodos}
-			/>
-		</View>
-		<HeroText>Step 2</HeroText>
-		<View style={styles.section}>
-		  <Button
-		   onPress={() => navigation.navigate('travelDatesSetting')}
-		   title="Enter Travel Dates"
-		   />
-		   <View style={{flex: 1},styles.containerCenter}>
-			 <Text style={styles.textSmall}>Start: {screenProps.travelDates[0]}</Text>
-			 <Text style={styles.textSmall}>End: {screenProps.travelDates.slice(-1)[0]}</Text>
-		   </View>
-		</View>		
-		<HeroText>Step 3</HeroText>
-		<View style={styles.section}>
-		   <Button
-			onPress={() => navigation.navigate('TodoListTab')}
-			title="See All Your To-dos"
-			/>
-		   <Button
-			onPress={() => navigation.navigate('CalendarTab')}
-			title="See Your To-dos by Date"
-			/>
-		</View>	
-		<HeroText>Resources:</HeroText>		
-		<Button
-		  onPress={() => navigation.navigate('TranslateTab')}
-		  title="Useful Japanese Phrases"
-		  />		
-	</ScrollView>
+  <ScrollView>
+    <HeroText>Step 1</HeroText>
+    <View style={styles.section}>
+      <Button
+        onPress={() => navigation.navigate('LoginSetting')}
+        title="Enter Travelers"
+        />
+      <FilterBar
+        filters={screenProps.activeUsers}
+        setFilters={screenProps.setActiveUsers}
+        fields={screenProps.userFilteredTodos}
+        filterBarLabel={"Travelers"}
+        setFields={screenProps.setUserFilteredTodos}
+        setUserFilteredTodos={screenProps.setUserFilteredTodos}
+        />
+    </View>
+    <HeroText>Step 2</HeroText>
+    <View style={styles.section}>
+      <Button
+       onPress={() => navigation.navigate('travelDatesSetting')}
+       title="Enter Travel Dates"
+       />
+       <View style={{flex: 1},styles.containerCenter}>
+         <Text style={styles.textSmall}>Start: {screenProps.travelDates[0]}</Text>
+         <Text style={styles.textSmall}>End: {screenProps.travelDates.slice(-1)[0]}</Text>
+       </View>
+    </View>
+    <HeroText>Step 3</HeroText>
+    <View style={styles.section}>
+       <Button
+        onPress={() => navigation.navigate('TodoListTab')}
+        title="See All Your To-dos"
+        />
+       <Button
+        onPress={() => navigation.navigate('CalendarTab')}
+        title="See Your To-dos by Date"
+        />
+    </View>
+    <HeroText>Resources:</HeroText>
+    <Button
+      onPress={() => navigation.navigate('TranslateTab')}
+      title="Useful Japanese Phrases"
+      />
+  </ScrollView>
 );
 
 class UpdateItinerary extends Component {
