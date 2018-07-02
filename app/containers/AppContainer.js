@@ -20,7 +20,14 @@ import {
 import { NavigationComponent } from 'react-native-material-bottom-navigation';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
+var TodoList = require('../components/TodoList');
+var Calendar = require('../components/Calendar');
+var Translate = require('../components/Translate');
+var Details = require('../components/Details');
 var Login = require('../components/Login');
+var TravelDates = require('../components/TravelDates');
+var FilterBar = require('../components/FilterBar');
+var HeroText = require('../components/HeroText');
 
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -45,76 +52,201 @@ const FIELDS =[{
 
 const HomeScreen = ({ navigation }) => (
 	<ScrollView>
-		<View style={styles.card}>
-			<Text style={styles.textLarge}>Japan Regions</Text>
-			  <Image
-				style={{width: windowWidth*0.96, height: windowWidth, alignSelf: 'center'}}
-				source={require('../../data/img/japan-regions.png')}
-			  />
-		</View>
-		<View style={styles.card}>
-			<Text style={styles.textLarge}>IC cards by region</Text>
-			  <Image
-				style={{width: windowWidth*0.96, height: windowWidth*0.85, alignSelf: 'center'}}
-				source={require('../../data/img/ic-cards-by-region.png')}
-			  />
-		</View>		
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Japan Regions</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth, alignSelf: 'center'}}
+        source={require('../../data/img/japan-regions.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>IC cards by region</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.85, alignSelf: 'center'}}
+        source={require('../../data/img/ic-cards-by-region.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Access Koyasan and KIX</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.85, alignSelf: 'center'}}
+        source={require('../../data/img/access-koyasan.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Tokyo Neighborhoods</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.75, alignSelf: 'center'}}
+        source={require('../../data/img/tokyo-neighborhoods.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Numbers</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*1.32, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-numbers.png')}
+      />
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.88, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-numbers2.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Money</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.5, alignSelf: 'center'}}
+        source={require('../../data/img/money.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Weekdays</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.8, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-weekdays.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Hiragana</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.58, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-hiragana.png')}
+      />
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.47, alignSelf: 'center', marginTop: 5}}
+        source={require('../../data/img/cheatsheet-hiragana2.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Katakana</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.58, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-katakana.png')}
+      />
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.47, alignSelf: 'center', marginTop: 5}}
+        source={require('../../data/img/cheatsheet-katakana2.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Toire (Toilette)</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.9, alignSelf: 'center'}}
+        source={require('../../data/img/toire.png')}
+      />
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.9, alignSelf: 'center'}}
+        source={require('../../data/img/toire2.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Ryokan (hotel)</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*1.08, alignSelf: 'center'}}
+        source={require('../../data/img/ryokan.png')}
+      />
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*0.94, alignSelf: 'center'}}
+        source={require('../../data/img/ryokan2.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Foods</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-foods.png')}
+      />
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-dinner.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Drinks</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-drinks.png')}
+      />
+  </View>
+  <View style={styles.card}>
+    <Text style={styles.textLarge}>Sushi</Text>
+      <Image
+        style={{width: windowWidth*0.96, height: windowWidth*1.13, alignSelf: 'center'}}
+        source={require('../../data/img/cheatsheet-sushi.png')}
+      />
+  </View>
+
 	</ScrollView>
 )
 const InfoScreen = ({ navigaiton , screenProps }) => (
-  <ScrollView>
-    <HeroText>Step 1</HeroText>
-    <View style={styles.section}>
-      <Button
-        onPress={() => navigation.navigate('LoginSetting')}
-        title="Enter Travelers"
-        />
-      <FilterBar
-        filters={screenProps.activeUsers}
-        setFilters={screenProps.setActiveUsers}
-        fields={screenProps.userFilteredTodos}
-        filterBarLabel={"Travelers"}
-        setFields={screenProps.setUserFilteredTodos}
-        setUserFilteredTodos={screenProps.setUserFilteredTodos}
-        />
-    </View>
-    <HeroText>Step 2</HeroText>
-    <View style={styles.section}>
-      <Button
-       onPress={() => navigation.navigate('travelDatesSetting')}
-       title="Enter Travel Dates"
-       />
-       <View style={{flex: 1},styles.containerCenter}>
-         <Text style={styles.textSmall}>Start: {screenProps.travelDates[0]}</Text>
-         <Text style={styles.textSmall}>End: {screenProps.travelDates.slice(-1)[0]}</Text>
-       </View>
-    </View>
-    <HeroText>Step 3</HeroText>
-    <View style={styles.section}>
-       <Button
-        onPress={() => navigation.navigate('TodoListTab')}
-        title="See All Your To-dos"
-        />
-       <Button
-        onPress={() => navigation.navigate('CalendarTab')}
-        title="See Your To-dos by Date"
-        />
-    </View>
-    <HeroText>Resources:</HeroText>
-    <Button
-      onPress={() => navigation.navigate('TranslateTab')}
-      title="Useful Japanese Phrases"
-      />
-  </ScrollView>
+	<ScrollView>
+		<HeroText>Step 1</HeroText>
+		<View style={styles.section}>
+			<Button
+			onPress={() => navigation.navigate('LoginSetting')}
+			title="Enter Travelers"
+			/>
+			<FilterBar
+			filters={screenProps.activeUsers}
+			setFilters={screenProps.setActiveUsers}
+			fields={screenProps.userFilteredTodos}
+			filterBarLabel={"Travelers"}
+			setFields={screenProps.setUserFilteredTodos}
+			setUserFilteredTodos={screenProps.setUserFilteredTodos}
+			/>
+		</View>
+		<HeroText>Step 2</HeroText>
+		<View style={styles.section}>
+		  <Button
+		   onPress={() => navigation.navigate('travelDatesSetting')}
+		   title="Enter Travel Dates"
+		   />
+		   <View style={{flex: 1},styles.containerCenter}>
+			 <Text style={styles.textSmall}>Start: {screenProps.travelDates[0]}</Text>
+			 <Text style={styles.textSmall}>End: {screenProps.travelDates.slice(-1)[0]}</Text>
+		   </View>
+		</View>		
+		<HeroText>Step 3</HeroText>
+		<View style={styles.section}>
+		   <Button
+			onPress={() => navigation.navigate('TodoListTab')}
+			title="See All Your To-dos"
+			/>
+		   <Button
+			onPress={() => navigation.navigate('CalendarTab')}
+			title="See Your To-dos by Date"
+			/>
+		</View>	
+		<HeroText>Resources:</HeroText>		
+		<Button
+		  onPress={() => navigation.navigate('TranslateTab')}
+		  title="Useful Japanese Phrases"
+		  />		
+	</ScrollView>
 );
 
 class UpdateItinerary extends Component {
-	
+	setTodos() {
+		let newFieldsGuest = this.props.screenProps.userFilteredTodos.map(todo => {
+			var newTodo = todo;
+			  newTodo.active = true
+			  return newTodo;
+			}
+		);
+		this.props.screenProps.setUserFilteredTodos(newFieldsGuest)
+	}
+	render() {
+		return(
+		  <Button
+			onPress={() => this.setTodos()}
+			title="Update Itinerary"
+			/>
+		)
+	}	
 }
 const TravelDatesScreen = ({ navigation, screenProps}) => (
-  <TravelDates
-    navigation={navigation}
-    screenProps={screenProps}
+	<TravelDates
+		navigation={navigation}
+		screenProps={screenProps}
     />
 );
 
@@ -429,7 +561,7 @@ const styles = StyleSheet.create({
 	  },	
 });
 
-/*************** Redux Stuff ****************/
+
 
 //Dispatching funcitons (boilerplate)
 function mapDispatchToProps(dispatch) {
@@ -438,12 +570,12 @@ function mapDispatchToProps(dispatch) {
 export default connect((state) => {
   //the state in the argument is the global state of the application
   return {
-    todoCount: state.todoCount,
-    activeDurations: state.activeDurations,
-    travelDates: state.travelDates,
-    activeUsers: state.activeUsers,
-    userFilteredTodos: state.userFilteredTodos,
-    activeTranslate: state.activeTranslate,
+    todoCount			: state.todoCount,
+    activeDurations		: state.activeDurations,
+    travelDates			: state.travelDates,
+    activeUsers			: state.activeUsers,
+    userFilteredTodos	: state.userFilteredTodos,
+    activeTranslate		: state.activeTranslate,
     filteredTranslations: state.filteredTranslations,
   }
-}, mapDispatchToProps)(AppContainer);
+}, mapDispatchToProps)(AppContainer); 
